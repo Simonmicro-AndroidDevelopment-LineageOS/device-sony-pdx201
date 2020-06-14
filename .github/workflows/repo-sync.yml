@@ -1,0 +1,35 @@
+name: repo-sync
+on:
+  schedule:
+  - cron:  "*/15 * * * *"
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: repo-sync-sodp
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: "sonyxperiadev/device-sony-pdx201"
+        source_branch: "*"
+        destination_branch: "*"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Fix permission sudo chmod -R ugo+rwX .
+      run: sudo chmod -R ugo+rwX .
+    - name: Git add user.email & user.name
+      run: git config --global user.email "nc-duenkekl3@netcologne.de" && git config --global user.name "Martin Dünkelmann"
+    - name: Rebase git remote update
+      run: git remote update
+    - name: Rebase git fetch
+      run: git fetch
+    - name: Rebase git checkout --track origin/MartinX3/lineage-17.1
+      run: git checkout --track origin/MartinX3/lineage-17.1
+    - name: Rebase git checkout MartinX3/lineage-17.1
+      run: git checkout MartinX3/lineage-17.1
+    - name: Rebase git pull
+      run: git pull
+    - name: Rebase git pull origin q-mr1
+      run: git pull origin q-mr1
+    - name: Rebase git push --force-with-lease
+      run: git push --force-with-lease
+
