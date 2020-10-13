@@ -18,18 +18,10 @@ jobs:
       run: sudo chmod -R ugo+rwX .
     - name: Git add user.email & user.name
       run: git config --global user.email "nc-duenkekl3@netcologne.de" && git config --global user.name "Martin Dünkelmann"
-    - name: Rebase git remote update
-      run: git remote update
-    - name: Rebase git fetch
-      run: git fetch
     - name: Rebase git checkout --track origin/MartinX3/lineage-17.1
       run: git checkout --track origin/MartinX3/lineage-17.1
-    - name: Rebase git checkout MartinX3/lineage-17.1
-      run: git checkout MartinX3/lineage-17.1
-    - name: Rebase git pull
-      run: git pull
     - name: Rebase git pull origin q-mr1
-      run: git pull origin q-mr1
+      run: git pull --rebase origin q-mr1
     - name: Rebase git push --force-with-lease
       run: git push --force-with-lease
 
