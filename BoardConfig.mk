@@ -51,10 +51,11 @@ BOARD_SOD_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     vendor \
     product
-
-# Slightly overprovision dynamic partitions with 50MiB to
-# allow on-device file editing
-BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 52428800
+    
+# Overprovision dynamic partitions with 580MiB to
+# allow on-device file editing and OpenGApps, vendor
+# and product remain on 50MiB overprovision
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 580000000
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 52428800
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 52428800
 
