@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BOARD_USE_ENFORCING_SELINUX := true
+BOARD_SEPOLICY_DIRS += \
+	device/sony/pdx201/selinux
+
 include device/sony/seine/PlatformConfig.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := unknown
