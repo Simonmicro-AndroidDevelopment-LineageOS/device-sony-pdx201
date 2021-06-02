@@ -23,6 +23,6 @@ $(call inherit-product, device/sony/pdx201/aosp_xqau51.mk)
 
 PRODUCT_NAME := aosp_xqau52
 PRODUCT_DEVICE := pdx201
-PRODUCT_MODEL := Xperia 10 II (AOSP)
+PRODUCT_MODEL := Xperia 10 II
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
