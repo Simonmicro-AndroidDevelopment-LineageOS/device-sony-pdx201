@@ -17,6 +17,8 @@ $(call inherit-product, device/sony/pdx201/aosp_xqau52.mk)
 
 # Override Product Name
 PRODUCT_NAME := lineage_pdx201_DSDS
+ 
+TARGET_SYSTEM_PROP += device/sony/pdx201/system.prop
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := pdx201
