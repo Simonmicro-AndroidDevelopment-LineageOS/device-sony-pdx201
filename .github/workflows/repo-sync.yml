@@ -1,5 +1,6 @@
 name: repo-sync
 on:
+  workflow_dispatch:
   schedule:
   - cron:  "*/15 * * * *"
 jobs:
@@ -8,17 +9,17 @@ jobs:
     steps:
     - name: Define variables
       run: |
-        echo "upstream=sonyxperiadev/device-sony-pdx201" >> $GITHUB_ENV
-        echo "rebase_base=q-mr1" >> $GITHUB_ENV
-        echo "rebase_head=MartinX3/lineage-17.1" >> $GITHUB_ENV
+        echo "upstream=MartinX3-AndroidDevelopment-LineageOS/android_device_sony_pdx201" >> $GITHUB_ENV
+        echo "rebase_base=MartinX3/lineage-17.1" >> $GITHUB_ENV
+        echo "rebase_head=Simonmicro/lineage-17.1" >> $GITHUB_ENV
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
         ref: ${{ env.rebase_head }}
     - name: Define git author for rebase
       run: |
-        git config user.email "nc-duenkekl3@netcologne.de"
-        git config user.name "Martin Dünkelmann"
+        git config user.email "simon@simonmicro.de"
+        git config user.name "Simonmicro"
     - uses: repo-sync/github-sync@v2
       with:
         source_repo: ${{ env.upstream }}
