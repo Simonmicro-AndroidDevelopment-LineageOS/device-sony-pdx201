@@ -137,6 +137,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.expose.aux=1
 
+# Use the LOS Snap camera (instead of stock)
+PRODUCT_PACKAGES += \
+    Snap
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/seine/platform.mk)
 
